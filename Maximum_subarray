@@ -1,0 +1,22 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        
+    int maximumSum = nums[0], currentRS = nums[0];
+
+		// loop through all the elements in the array nums
+		for(int i = 1; i < nums.length; i++) {
+
+			// update the current running sum accordingly    
+			if(nums[i] > currentRS + nums[i]) {
+				currentRS = nums[i];  
+			}
+			else {
+				currentRS += nums[i];
+			}
+			
+			// update the maximum sum accordingly
+			maximumSum = Math.max(maximumSum, currentRS);
+		}
+		return maximumSum;
+	}
+}
