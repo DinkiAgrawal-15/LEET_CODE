@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isHappy(int n) {
+        boolean[] exist = new boolean[1000];
+    while(true){
+        if(n == 1) return true;
+        int m = 0;
+        while(n > 0){
+            m += (n % 10) * (n % 10);
+            n /= 10;
+        }
+        n = m;
+        if(exist[m] == true) return false;
+        exist[m] = true;
+    }
+    }
+}
